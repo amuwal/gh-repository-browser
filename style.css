@@ -1,0 +1,8 @@
+/* Add your styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.pagination-btn.active {
+    text-decoration: underline;
+}

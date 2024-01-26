@@ -72,11 +72,11 @@ async function updateUserInfo() {
 
   userImage.src = data.avatar_url;
   userImage.alt = data.login;
-  userName.textContent = data.name || "Not Available";
-  userBio.textContent = data.bio || "Not Available";
+  userName.textContent = data.name || "Username not set";
+  userBio.textContent = data.bio || "Bio not set";
   userFollowers.textContent = data.followers;
   userFollowing.textContent = data.following;
-  userLocation.textContent = data.location || "Not Available";
+  userLocation.textContent = data.location || "Not set";
   userGithubLink.href = data.html_url;
   userRepos.textContent = data.public_repos;
 

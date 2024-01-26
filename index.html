@@ -20,35 +20,36 @@
     <div class="container">
       <div class="profile-info">
         <div class="profile-info-image-wrapper">
-          <img
-            id="user-image"
-            src="https://avatars.githubusercontent.com/u/1202528?v=4"
-            alt=""
-            srcset=""
-          />
+          <img id="user-image" src="" alt="Hi" srcset="" />
         </div>
         <div class="profile-name-wrapper">
           <div class="user-name" id="user-name">username</div>
           <div id="user-bio">bio</div>
           <div class="user-connections">
             <div id="user-followers">
-              <span id="user-followers-count">1000</span> Followers
+              <span>Followers</span>
+              <span id="user-followers-count">1000</span>
             </div>
             <div id="user-following">
-              <span id="user-following-count">1000</span> Following
+              <span>Following</span>
+              <span id="user-following-count">1000</span>
             </div>
             <div id="user-repos">
-              <span id="user-repos-count">1000</span> Repositories
+              <span>Repositories</span>
+              <span id="user-repos-count">1000</span>
             </div>
           </div>
-          <div id="user-location">location</div>
+          <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="user-location">location</span>
+          </div>
           <div class="user-socials">
             <a
               id="user-github-link"
               href="https://github.com/username"
               target="_blank"
             >
-              <i class="fa-brands fa-github"></i>
+              <i class="fa-brands fa-github fa-xl"></i>
             </a>
           </div>
         </div>
@@ -57,12 +58,14 @@
       <div class="repos-wrapper">
         <div class="repos-title">Repositories</div>
         <div>
+          <label for="limit">Limit</label>
           <select name="limit" id="limit">
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">50</option>
             <option value="100">100</option>
           </select>
+          <label for="sort">Order by:</label>
           <select name="sort" id="sort">
             <option value="name">Name</option>
             <option value="stars">Stars</option>

@@ -100,11 +100,56 @@ async function updateRepos(pageNumber = 1) {
 
   const reposList = document.querySelector(".repos-list");
   reposList.innerHTML = "";
-  data.forEach((repo) => {
-    const repoItem = document.createElement("li");
-    repoItem.textContent = repo.name;
+
+  data.forEach(async (repo) => {
+    const repoItem = document.createElement("div");
+    repoItem.className = "repo-item";
+
+    const repoName = document.createElement("a");
+    repoName.textContent = repo.name;
+    repoName.href = repo.html_url;
+    repoName.target = "_blank";
+    repoItem.appendChild(repoName);
+
+    if (repo.description) {
+      const description = document.createElement("p");
+      description.textContent =
+        repo.description.length > 50
+          ? `${repo.description.slice(0, 50)}...`
+          : repo.description;
+      repoItem.appendChild(description);
+    } else {
+      const description = document.createElement("p");
+      description.textContent = "No description provided..";
+      repoItem.appendChild(description);
+    }
+
+    // Fetching language information from languages_url
+    const languagesResponse = await fetch(repo.languages_url);
+    const languagesData = await languagesResponse.json();
+
+    // Adding tags for each language used in the repository
+    const tagsContainer = document.createElement("div");
+    tagsContainer.className = "tags-container";
+
+    if (Object.keys(languagesData).length) {
+      for (const lang in languagesData) {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = lang;
+        tagsContainer.appendChild(tag);
+      }
+    } else {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = "No languages";
+      tagsContainer.appendChild(tag);
+    }
+
+    repoItem.appendChild(tagsContainer);
     reposList.appendChild(repoItem);
   });
+
   updatePagination(pageNumber, Math.ceil(TOTAL_REPOS / limit));
 }
 

@@ -124,13 +124,45 @@ body {
   width: 100%;
 }
 
-.repos-list li {
-  list-style: none;
+.repos-list .repo-item {
   display: flex;
-  align-items: center;
+  align-items: start;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.repo-item a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.repo-item p {
+  padding: 0;
+  margin: 0;
+}
+
+.tags-container {
+  background-color: #f1f1f1;
+  padding: 10px 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags-container .tag {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #15ffa9;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 .pagination-wrapper {
